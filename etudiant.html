@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Étudiants</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Ajouter un étudiant</h2>
+    <form id="formEtudiant">
+        <label><input type="number" name="ID_Etudiant" placeholder="ID Étudiant" required></label><br>
+        <input type="text" name="Nom_Etudiant" placeholder="Nom" required><br>
+        <input type="text" name="Prenom_etudiant" placeholder="Prénom" required><br>
+        <input type="email" name="Email" placeholder="Email" required><br>
+        <input type="date" name="Date_Naissance" required><br>
+        <input type="text" name="Statut" placeholder="Statut"><br>
+        <input type="text" name="Nationalite" placeholder="Nationalité"><br>
+        <input type="text" name="Ref_Diplome" placeholder="Réf. Diplôme"><br>
+        <input type="number" name="Num_tel" placeholder="Numéro de téléphone"><br>
+        <input type="text" name="Adresse" placeholder="Adresse"><br>
+        <input type="number" name="ID_Piece" placeholder="ID Pièce"><br>
+        <button type="submit">Ajouter</button>
+    </form>
+    <div id="message"></div>
+    <script src="js/etudiant.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portail Étudiant - Inscription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="img\LOGO-OFFICIAL-UDSN-HD-893x1024 (1).png" alt="Logo Université DSN" class="logo">
+        <h2>Portail Étudiant</h2>
+    </div>
+    <div class="student-portal-form">
+        <h3>Inscription Étudiant</h3>
+        <form id="formEtudiantPortail">
+            <input type="text" name="Nom_Etudiant" placeholder="Nom" required><br>
+            <input type="text" name="Prenom_etudiant" placeholder="Prénom" required><br>
+            <input type="email" name="Email" placeholder="Email" required><br>
+            <input type="date" name="Date_Naissance" required><br>
+            <input type="text" name="Statut" placeholder="Statut"><br>
+            <input type="text" name="Nationalite" placeholder="Nationalité"><br>
+            <input type="text" name="Ref_Diplome" placeholder="Réf. Diplôme"><br>
+            <input type="text" name="Num_tel" placeholder="Numéro de téléphone"><br>
+            <input type="text" name="Adresse" placeholder="Adresse"><br>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+    document.getElementById('formEtudiantPortail').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('php/ajouter_etudiant.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('message').innerText = data;
+            this.reset();
+        })
+        .catch(() => {
+            document.getElementById('message').innerText = "Erreur lors de l'envoi.";
+        });
+    });
+    </script>
+</body>
+</html>

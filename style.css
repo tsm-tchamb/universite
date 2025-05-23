@@ -1,0 +1,184 @@
+.student-portal {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.portal-btn {
+    display: inline-block;
+    background: #28a745;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #bbb;
+    transition: background 0.2s;
+}
+.portal-btn:hover {
+    background: #218838;
+}
+.student-portal-form {
+    max-width: 400px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+    padding: 20px 30px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+   color: #333;
+    text-align: center;
+    font-size: 2.5em;         /* Plus grand */
+    font-family: 'Segoe UI', 'Arial', sans-serif; /* Police moderne */
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+form {
+    background: #fff;
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+}
+input, textarea, select, button {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+}
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #0056b3;
+}
+#message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+ul {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+    padding: 20px 0;
+}
+ul li {
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+ul li .icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff22;
+    background: #f5f5f5;
+
+}
+ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+ul li a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.dropbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 16px 32px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #bbb;
+    transition: background 0.2s;
+}
+
+.dropbtn:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 320px;
+    box-shadow: 0 8px 16px #ccc;
+    border-radius: 8px;
+    z-index: 1;
+    margin-top: 8px;
+    padding: 8px 0;
+}
+
+.dropdown-content a {
+    color: #007bff;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f8ff;
+}
+
+.dropdown-content .icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
