@@ -4,6 +4,96 @@
     <meta charset="UTF-8">
     <title>Portail Étudiant - Inscription</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { background: #f8f9fa; margin: 0; font-family: Arial, sans-serif; }
+        .header {
+            background: #0d6efd;
+            color: #fff;
+            padding: 32px 0 16px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 90px;
+            margin-bottom: 10px;
+        }
+        .student-portal-form {
+            max-width: 500px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #0d6efd22;
+            padding: 32px 24px 24px 24px;
+            position: relative;
+        }
+        .student-portal-form h3 {
+            color: #0d6efd;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .student-portal-form input, .student-portal-form button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            border: 1px solid #0d6efd;
+            font-size: 16px;
+        }
+        .student-portal-form button {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .student-portal-form button:hover {
+            background: #fff;
+            color: #0d6efd;
+            border: 2px solid #0d6efd;
+            transform: scale(1.04);
+        }
+        .dropdown-content {
+            margin-top: 30px;
+            display: none;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            color: #0d6efd;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s, color 0.2s;
+            background: none;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a:hover {
+            background-color: #e7f1ff;
+            color: #084298;
+        }
+        .icon {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            border-radius: 4px;
+            object-fit: cover;
+            box-shadow: 0 1px 4px #0001;
+            background: #f8f9fa;
+        }
+        #message {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #0d6efd;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -11,32 +101,43 @@
         <h2>Portail Étudiant</h2>
     </div>
     <div class="student-portal-form">
-        <h3>Inscription Étudiant</h3>
+        <h3><i class="fa-solid fa-user-graduate"></i> Inscription Étudiant</h3>
         <form id="formEtudiantPortail">
-            <input type="text" name="Nom_Etudiant" placeholder="Nom" required><br>
-            <input type="text" name="Prenom_etudiant" placeholder="Prénom" required><br>
-            <input type="email" name="Email" placeholder="Email" required><br>
-            <input type="date" name="Date_Naissance" required><br>
-            <input type="text" name="Statut" placeholder="Statut"><br>
-            <input type="text" name="Nationalite" placeholder="Nationalité"><br>
-            <input type="text" name="Ref_Diplome" placeholder="Réf. Diplôme"><br>
-            <input type="text" name="Num_tel" placeholder="Numéro de téléphone"><br>
-            <input type="text" name="Adresse" placeholder="Adresse"><br>
+            <input type="text" name="Nom_Etudiant" placeholder="Nom" required>
+            <input type="text" name="Prenom_etudiant" placeholder="Prénom" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="date" name="Date_Naissance" required>
+            <input type="text" name="Statut" placeholder="Statut">
+            <input type="text" name="Nationalite" placeholder="Nationalité">
+            <input type="text" name="Ref_Diplome" placeholder="Réf. Diplôme">
+            <input type="text" name="Num_tel" placeholder="Numéro de téléphone">
+            <input type="text" name="Adresse" placeholder="Adresse">
             <button type="submit">S'inscrire</button>
         </form>
         <div id="message"></div>
+        <!-- Menu Gestion caché au départ -->
+        <div id="menuGestion" class="dropdown-content">
+            <a href="etudiant.html"><img src="img/icone mobile.jpg" class="icon" alt="Etudiant"> Gérer les étudiants</a>        
+            <a href="parent.html"><img src="img/icone affaire.jpg" class="icon" alt="Parent"> Gérer les parents</a>       
+            <a href="etablissement.html"><img src="img/icone médical.jpg" class="icon" alt="Etablissement"> Gérer les établissements</a>        
+            <a href="piece.html"><img src="img/icone communication.jpg" class="icon" alt="Pièce"> Gérer les pièces</a>
+            <a href="localisation.html"><img src="img/7fe878dcfb11bf554eaecf13d5c81ddf.jpg" class="icon" alt="Localisation"> Gérer les localisations</a>
+            <a href="etudiant_parent.html"><img src="img/e98ea7cc-166d-4703-9ca3-8a57c6bc3280.jpeg" class="icon" alt="Etudiant_Parent"> Lier étudiant/parent</a>
+            <a href="inscription.html"><img src="img/LOGO UDSN VERTE.jpg" class="icon" alt="Inscription"> Inscrire un étudiant</a>
+        </div>
     </div>
     <script>
     document.getElementById('formEtudiantPortail').addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(this);
-        fetch('php/ajouter_etudiant.php', {
+        fetch('php/etudiant.php', {
             method: 'POST',
             body: formData
         })
         .then(res => res.text())
         .then(data => {
             document.getElementById('message').innerText = data;
+            document.getElementById('menuGestion').style.display = 'block';
             this.reset();
         })
         .catch(() => {

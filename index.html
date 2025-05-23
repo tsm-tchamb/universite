@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Accueil Université</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body { background: #f8f9fa; margin: 0; font-family: Arial, sans-serif; }
         .header {
@@ -18,85 +19,27 @@
         }
         .student-portal {
             text-align: center;
-            margin: 30px 0 20px 0;
+            margin: 40px 0 40px 0;
         }
         .portal-btn {
+            background: linear-gradient(90deg, #0d6efd 60%, #fff 100%);
+            color: #fff;
+            border: none;
+            padding: 22px 48px;
+            border-radius: 16px;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 24px #0d6efd44;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .portal-btn:hover {
             background: #fff;
             color: #0d6efd;
             border: 2px solid #0d6efd;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s;
-            box-shadow: 0 2px 8px #0001;
-        }
-        .portal-btn:hover {
-            background: #0d6efd;
-            color: #fff;
-        }
-        .dropdown {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-        .dropbtn {
-            background-color: #0d6efd;
-            color: white;
-            padding: 16px 32px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-            font-weight: bold;
-            box-shadow: 0 2px 8px #0001;
-        }
-        .dropbtn:hover {
-            background-color: #084298;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 280px;
-            box-shadow: 0 8px 24px #0002;
-            border-radius: 8px;
-            z-index: 1;
-            margin-top: 5px;
-            padding: 10px 0;
-        }
-        .dropdown-content a {
-            color: #0d6efd;
-            padding: 12px 20px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.2s, color 0.2s;
-            background: none;
-        }
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-        .dropdown-content a:hover {
-            background-color: #e7f1ff;
-            color: #084298;
-        }
-        .dropdown-content .icon {
-            width: 28px;
-            height: 28px;
-            margin-right: 12px;
-            border-radius: 4px;
-            object-fit: cover;
-            box-shadow: 0 1px 4px #0001;
-            background: #f8f9fa;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
+            transform: scale(1.04);
         }
         .about-section, .news-section {
             max-width: 800px;
@@ -121,8 +64,7 @@
         }
         @media (max-width: 600px) {
             .about-section, .news-section { padding: 16px 8px; }
-            .dropbtn { width: 100%; }
-            .dropdown-content { min-width: 90vw; left: 50%; transform: translateX(-50%); }
+            .portal-btn { font-size: 18px; padding: 14px 18px; }
         }
     </style>
 </head>
@@ -132,19 +74,9 @@
         <h2>Gestion d'inscription à l'Université DSN</h2>
     </div>
     <div class="student-portal">
-        <a href="etudiant_portail.html" class="portal-btn">Portail étudiant : S'inscrire</a>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Menu Gestion</button>
-        <div class="dropdown-content">
-            <a href="etudiant.html"><img src="img/icone mobile.jpg" class="icon" alt="Etudiant"> Gérer les étudiants</a>        
-            <a href="parent.html"><img src="img/icone affaire.jpg" class="icon" alt="Parent"> Gérer les parents</a>       
-            <a href="etablissement.html"><img src="img/icone médical.jpg" class="icon" alt="Etablissement"> Gérer les établissements</a>        
-            <a href="piece.html"><img src="img/icone communication.jpg" class="icon" alt="Pièce"> Gérer les pièces</a>
-            <a href="localisation.html"><img src="img/7fe878dcfb11bf554eaecf13d5c81ddf.jpg" class="icon" alt="Localisation"> Gérer les localisations</a>
-            <a href="etudiant_parent.html"><img src="img/e98ea7cc-166d-4703-9ca3-8a57c6bc3280.jpeg" class="icon" alt="Etudiant_Parent"> Lier étudiant/parent</a>
-            <a href="inscription.html"><img src="img/LOGO UDSN VERTE.jpg" class="icon" alt="Inscription"> Inscrire un étudiant</a>
-        </div>
+        <a href="etudiant_portail.html" class="portal-btn">
+            <i class="fa-solid fa-user-graduate"></i> Portail étudiant : S'inscrire
+        </a>
     </div>
     <div class="about-section">
         <h2>À propos de l’Université</h2>
@@ -156,8 +88,8 @@
         <h2><span style="font-size:1.2em;">📰</span> Actualités</h2>
         <ul>
             <li><strong>23 mai 2025 :</strong> Lancement du nouveau portail d’inscription en ligne.</li>
-            <li><strong>15 mai 2025 :</strong> Journée portes ouvertes pour les nouveaux étudiants.</li>
-            <li><strong>1er mai 2025 :</strong> Ouverture des candidatures pour les bourses d’excellence.</li>
+            <li><strong>15 Août 2025 :</strong> Journée portes ouvertes pour les nouveaux étudiants.</li>
+            <li><strong>1er septembre 2025 :</strong> Ouverture des candidatures pour les bourses d’excellence.</li>
         </ul>
     </div>
     <div class="footer">
