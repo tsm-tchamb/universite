@@ -1,17 +1,24 @@
- 
- <?php
-// filepath: C:\xampp\htdocs\universite\php\ajouter_etudiant.php
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 $host = 'localhost';
 $user = 'root';
-$pass = '2526';
+$pass = '';
 $db = 'inscription';
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli($host, $user, $pass, $db, );
 if ($conn->connect_error) { die("Connexion échouée: " . $conn->connect_error); }
 
-$stmt = $conn->prepare("INSERT INTO Etudiant (ID_Etudiant, Nom_Etudiant, Email, Date_Naissance, Statut, Nationalite, Ref_Diplome, Num_tel, Prenom_etudiant, Adresse, ID_Piece) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("issssssisss",
-    $_POST['ID_Etudiant'],
+// 1. Créer une pièce vide (ou avec valeurs par défaut)
+$stmt_piece = $conn->prepare("INSERT INTO piece (Acte_Naissance, Demande_Manuscrite, Releve_Note, Attestation, Casier_Judiciaire, Certificat_Nationalite) VALUES (0,0,0,0,0,0)");
+$stmt_piece->execute();
+$id_piece = $conn->insert_id;
+$stmt_piece->close();
+
+// 2. Insérer l'étudiant avec l'ID_Piece généré
+$stmt = $conn->prepare("INSERT INTO etudiant (Nom_Etudiant, Email, Date_Naissance, Statut, Nationalite, Ref_Diplome, Num_tel, Prenom_etudiant, Adresse, ID_Piece) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssi",
     $_POST['Nom_Etudiant'],
     $_POST['Email'],
     $_POST['Date_Naissance'],
@@ -21,13 +28,20 @@ $stmt->bind_param("issssssisss",
     $_POST['Num_tel'],
     $_POST['Prenom_etudiant'],
     $_POST['Adresse'],
-    $_POST['ID_Piece']
+    $id_piece
 );
 
 if ($stmt->execute()) {
-    echo "Étudiant ajouté !";
+    $id_etudiant = $conn->insert_id;
+    // 3. Créer le compte étudiant (mot de passe hashé)
+    $mot_de_passe = password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT);
+    $stmt_compte = $conn->prepare("INSERT INTO compte (email, mot_de_passe, id_etudiant) VALUES (?, ?, ?)");
+    $stmt_compte->bind_param("ssi", $_POST['Email'], $mot_de_passe, $id_etudiant);
+    $stmt_compte->execute();
+    $stmt_compte->close();
+    echo "Inscription réussie !";
 } else {
-    echo "Erreur: " . $conn->error;
+    echo "Erreur: " . $stmt->error;
 }
 $stmt->close();
 $conn->close();

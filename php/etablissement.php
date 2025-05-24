@@ -2,10 +2,10 @@
 // filepath: c:\xampp\htdocs\universite\php\ajouter_etablissement.php
 $host = 'localhost';
 $user = 'root';
-$pass = '2526';
+$pass = '';
 $db = 'inscription';
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli($host, $user, $pass, $db, );
 if ($conn->connect_error) { die("Connexion échouée: " . $conn->connect_error); }
 
 $stmt = $conn->prepare("INSERT INTO Etablissement (ID_Etablissement, Libelle_Etablissement, Parcours) VALUES (?, ?, ?)");
